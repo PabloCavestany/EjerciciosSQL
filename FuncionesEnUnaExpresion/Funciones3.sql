@@ -1,0 +1,8 @@
+-- 1 select curdate();
+-- 2 select char_length(curdate());
+-- 3 select now(), now()+interval 20 day;
+-- 4 select now(), now()-interval 20 day - interval 1 year;
+-- 5 select date('1990-06-10') fecha1, date('1990-06-10')+interval 3 month + interval 5 day fecha2; 
+-- 6 select date_format(curdate(),'%d de %M de %Y');
+-- 7 set @@global.lc_time_names='es_ES'; select @@global.lc_time_names; 
+-- 8 select datediff(curdate(),'19980508');
