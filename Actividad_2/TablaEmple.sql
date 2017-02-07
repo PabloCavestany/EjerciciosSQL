@@ -1,0 +1,14 @@
+select dept_no,count(*) from emple group by dept_no;
+select dept_no, count(*) from emple group by dept_no having count(*) > 5;
+select avg(salario),dept_no from emple group by dept_no;
+select apellido, dept_no from emple where oficio = 'vendedor' and dept_no=30;
+select count(*) from emple where oficio ='vendedor' and dept_no=30;
+select distinct oficio from emple where dept_no=30;
+select dept_no, count(apellido) from emple where oficio='empleado' group by dept_no;
+select dept_no, count(apellido) from emple group by dept_no order by 2 desc limit 1;
+select oficio, sum(salario) from emple group by oficio;
+select sum(salario), oficio from emple where dept_no=30 group by oficio;
+select dept_no, count(*)  from emple where oficio='empleado' group by dept_no order by count(*) desc limit 1;
+select dept_no, count(distinct oficio) from emple group by dept_no; 
+select dept_no, oficio, count(apellido) from emple group by dept_no,oficio having count(apellido)>2;
+select dept_no, group_concat(oficio, salario order by salario desc) cargo from emple group by dept_no;
