@@ -1,0 +1,2 @@
+-- select city.name, country.name from city,country where city.CountryCode=country.Code;
+select countrylanguage.language, country.name from countrylanguage, country where countrylanguage.countrycode=country.code;
