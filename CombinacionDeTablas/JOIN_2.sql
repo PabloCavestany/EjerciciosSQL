@@ -1,0 +1,4 @@
+-- select country.name, city.name from country inner join city on country.capital=city.ID;
+-- (¿qué países no tienen capital?) select country.name, city.name from country left join city on country.capital=city.ID where city.name is null;
+-- select country.name, city.name from city inner join country on country.capital=city.ID where country.code in ('ATA','CHE');
+-- select country.name, city.name from city right join country on country.capital=city.ID where country.code in ('ATA','CHE');
