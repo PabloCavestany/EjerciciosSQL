@@ -1,4 +1,11 @@
--- select country.name, city.name from country inner join city on country.capital=city.ID;
+-- 1 select country.name, city.name from country inner join city on country.capital=city.ID;
 -- (¿qué países no tienen capital?) select country.name, city.name from country left join city on country.capital=city.ID where city.name is null;
--- select country.name, city.name from city inner join country on country.capital=city.ID where country.code in ('ATA','CHE');
--- select country.name, city.name from city right join country on country.capital=city.ID where country.code in ('ATA','CHE');
+-- 2 select country.name, city.name from city inner join country on country.capital=city.ID where country.code in ('ATA','CHE');
+-- 3y4 select country.name, city.name from city right join country on country.capital=city.ID where country.code in ('ATA','CHE');
+-- 5 select c.name, ci.District from country c join city ci on c.code=ci.countrycode where ci.name='San Antonio';
+-- 6 select distinct language, c.name from country c join countrylanguage ca on c.code=ca.countrycode where c.name='Sweden';
+-- 7 select c.name from country c left join countrylanguage ca on ca.countrycode=c.code where ca.language is null;
+-- 8 select co.language from countrylanguage co left join country c on co.countrycode=c.code where c.code is null;
+-- 9 select c.name, co.language from country c join countrylanguage co on c.code=co.countrycode group by c.name having count(c.name)=1 and language='French';
+-- 10 select distinct c.name from country c join city ci on ci.countrycode=c.code where ci.population>7000000;
+-- 11 select c.name, count(*) from country c join city ci on c.code=ci.countrycode group by c.code order by count(*) desc limit 1;
