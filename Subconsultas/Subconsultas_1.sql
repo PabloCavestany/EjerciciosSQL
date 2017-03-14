@@ -1,0 +1,7 @@
+-- 1select apellido,(select dnombre from depart where dept_no=emple.dept_no) 'Nombre departamento' from emple;
+-- 2a select dnombre, (select avg(salario) from emple where dept_no=depart.dept_no)'Salario medio' from depart;
+-- 2b select avg(salario),(select dnombre from depart where dept_no=emple.dept_no) from emple group by dept_no;
+-- 3a select count(emp_no), (select dnombre from depart where dept_no=emple.dept_no) Departamento from emple where year(fecha_alt) = '1991' group by dept_no;
+-- 3b select dnombre, (select count(emp_no) from emple where dept_no= depart.dept_no and year(fecha_alt)='1991') 'Número empleados' from depart;
+-- 4:consulta: Muestra comisiones medias de cada departamento
+-- 4 select dnombre, ifnull((select avg(ifnull(comision,0)) from emple where dept_no=depart.dept_no),0) 'Media comisiones' from depart;

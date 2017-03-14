@@ -10,4 +10,4 @@
 -- 7select Titol from pelicula p,genere g where p.codigenere=g.codigenere and Descripcio='Terror';
 -- 8select p.Titol 'Segunda parte', pe.Titol 'Primera parte' from pelicula p join pelicula pe on p.codipeli=pe.Segonapart;+
 -- 9select p.Titol, count(co.codicopia) 'Num de copias' from pelicula p join copia co using(codipeli) group by p.Titol;
-select f.Import, f.Data from factura f order by 2 desc;
+-- 10select f.Import, f.Data from factura f order by 2 desc;
