@@ -5,3 +5,5 @@
 -- 4a select distinct continent from country where code in (select countrycode from countrylanguage where language='English' and Percentage>50); 
 -- 4b select distinct continent from country where exists (select * from countrylanguage where countrycode=code and language='English' and Percentage>50);
 -- 5select name from country where code = (select countrycode from city order by Population desc limit 1);
+-- 6Devuelve los datos del país menos poblado de Sudamérica.
+-- 7select * from country where continent='South America'and Population = (select min(Population) from country where continent='South America');
