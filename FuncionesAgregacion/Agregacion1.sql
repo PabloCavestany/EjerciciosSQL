@@ -1,5 +1,0 @@
--- 1 select min(Population) from country;
--- 2 select sum(Population) from country where continent='Africa';
--- 3 select avg(Population) from country where continent='North America';
--- 4 select group_concat(Name SEPARATOR ' ') from country where continent='Asia' order by Name desc;
--- 5 select group_concat(Name order by Name  SEPARATOR ' ') from country where continent='Asia';

@@ -1,0 +1,2 @@
+-- 1 select name, ifnull(capital,'sin capital')  from country;
+-- 2 select if(SurfaceArea>Population, lower(name),upper(name)) from country;
