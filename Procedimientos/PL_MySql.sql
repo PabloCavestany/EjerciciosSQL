@@ -33,7 +33,7 @@ call ejercicio123(3);
 create procedure ejercicio152(codigoCliente int, nombreCliente varchar(45))
 	insert into cliente(cliente_cod,nombre) 
 		values (codigoCliente,nombreCliente);
-*/
+
 -- 4
 delimiter //
 create procedure ejercicio154(fecha date)
@@ -44,6 +44,35 @@ begin
 	select var;
 end//
 delimiter ;
+
+-- 5
+delimiter //
+create procedure ejercicio155 (var1 varchar(25),var2 varchar(25))
+begin
+	DECLARE registros int unsigned;
+	
+	create table if not exists prueba_tabla_1(campo1 int unsigned 
+					auto_increment primary key, 
+					campo2 varchar(50)) charset utf8;
+	insert into prueba_tabla_1 values (0,
+					upper(concat(var1,var2)));
+	select count(*) into registros from prueba_tabla_1;
+	select concat('Inserción correcta. El número de 
+			registros es ', registros) RESULTADO;
+end//
+delimiter ;
+
+-- 6
+delimiter //
+create procedure ejercicio156(inout var int)
+begin 
+	set var = var+1;
+	select var; 
+end//
+delimiter ;
+*/
+
+	
 
 
 
