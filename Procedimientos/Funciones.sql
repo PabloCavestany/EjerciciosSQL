@@ -18,7 +18,32 @@ begin
 	return (select apellido from emp where emp_no= num_emp );
 end//
 delimiter ;
-*/
+
 -- 5
-create function funciones15 (fecha datetime) returns varchar(30)
-	return date_format(fecha,'%d,%M,') --- `pendiente
+delimiter //
+
+create function funciones15 (fecha datetime)
+	returns varchar(30)
+	begin
+		set lc_time_names='es_ES';
+	    return date_format(fecha,'%W,%d,%H:%i:%s'); 
+	end//
+delimiter ;
+
+-- 6
+create function funciones16(fecha1 datetime, fecha2 datetime)
+		returns int
+		return timestampdiff(year,fecha1,fecha2);
+*/
+create function funciones21(numero smallint)
+		returns decimal(8,2)
+		return (select sum(importe) from DETALLE  where com_num=numero group by com_num);
+	
+	
+	
+	
+	
+	
+	
+	
+	
