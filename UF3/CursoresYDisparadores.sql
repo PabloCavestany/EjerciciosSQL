@@ -99,7 +99,7 @@ delimiter ;
 create trigger disparadores21 before insert
 on empresa.cliente for each row 
 set @v=concat('nuevo cliente: ',NEW.nombre);
-*/
+
 
 -- Ejercicio 6
 
@@ -115,5 +115,5 @@ begin
 	replace into contador (cont) values (var);
 end//
 delimiter ;
-
+*/
 	
