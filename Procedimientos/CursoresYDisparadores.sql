@@ -58,7 +58,7 @@ begin
 	close cursor1;
 end//
 delimiter ;
-*/
+
 -- Ejercicio 4
 drop procedure cursores14;
 delimiter //
@@ -93,4 +93,27 @@ begin
 	close cursorA;
 end//
 delimiter ;
+
+-- Ejercicio 5
+
+create trigger disparadores21 before insert
+on empresa.cliente for each row 
+set @v=concat('nuevo cliente: ',NEW.nombre);
+*/
+
+-- Ejercicio 6
+
+create table contador (cont int unsigned primary key);
+insert into contador values(0);
+delimiter //
+
+create trigger disparadores22  after update
+on empresa.comanda for each row 
+begin 
+	DECLARE var int unsigned;
+	set var = (select cont from contador) + 1;
+	replace into contador (cont) values (var);
+end//
+delimiter ;
+
 	
