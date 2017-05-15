@@ -10,19 +10,19 @@ set @v=concat('nuevo cliente: ',NEW.nombre);
 
 create table contador (cont int unsigned primary key);
 insert into contador values(0);
-*/
+
+create table if not exists contmod (modif int, tiempo datetime);
 delimiter //
 
 create trigger disparadores2  after update
 on empresa.comanda for each row 
 begin 
-	DECLARE var int unsigned;
-	set var = (select cont from contador) + 1;
-	replace into contador (cont) values (var);
+	set @contador=(select count(*) from contmod)+1;
+	insert into contmod values (@contador,now());
 end//
 delimiter ;
 
-/*
+
 -- Ejercicio 3 (primera manera)
 
 create trigger disparadores3 after insert
@@ -43,11 +43,13 @@ begin
 end//
 delimiter ;
 
+-- Ejercicio 4
 
 create trigger disparadores4 after delete
 on comanda for each row 
 	set @var = @var - OLD.total;
 
+-- Ejercicio 5
 
 create trigger disparadores5 before update
 on comanda for each row 
