@@ -20,13 +20,17 @@ begin
 	close cursor1;
 end//
 delimiter ;
+
+-- Ejercicio 2
 */
+drop function handling2;
  delimiter //
  create function handling2 (num int)
  returns int
  begin
 	declare runner int default 2;
 	declare test int default true;
+	if num = 1 then return true; end if;
 	prime:loop
 		if (runner=num)then
 			set test=true;
@@ -40,5 +44,29 @@ delimiter ;
 		set runner=runner+1;
 	end loop;
 	return test;
+end//
+delimiter ;
+
+-- Ejercicio 3
+
+delimiter //
+ drop function handling3;
+create function handling3 (m int)
+returns int
+begin
+	declare cont,var,prim int default 0;
+	set cont = 1;
+	eti:loop
+		if handling2(cont) then
+			set var=var+cont;
+			set prim=prim+1;
+		end if;
+		
+		if prim=m then 
+			leave eti;
+		end if;
+		set cont=cont+1;
+	end loop;
+	return var;
 end//
 delimiter ;
