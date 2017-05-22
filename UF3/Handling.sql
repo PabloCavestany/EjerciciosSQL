@@ -22,7 +22,7 @@ end//
 delimiter ;
 
 -- Ejercicio 2
-*/
+
 drop function handling2;
  delimiter //
  create function handling2 (num int)
@@ -70,3 +70,31 @@ begin
 	return var;
 end//
 delimiter ;
+
+*/
+-- Ejercicio 5
+-- Añadimos un campo en la tabla prestec. Si el valor del campo es uno la película es gratuita.
+
+delimiter //
+-- alter table prestec add column Regalo boolean default 0//
+drop trigger handling5//
+
+create trigger handling5 before insert on prestec
+for each row
+begin
+	declare var int;
+	set var = (select count(*) from prestec where DNI=NEW.DNI);
+	if (var%6=0)then
+		set NEW.Regalo=true;
+	end if;
+end//
+delimiter ;
+-- Pendiente de pulir
+
+
+
+
+
+
+
+
