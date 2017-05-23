@@ -71,25 +71,29 @@ begin
 end//
 delimiter ;
 
-*/
--- Ejercicio 5
+
+-- Ejercicio 5 
 -- Añadimos un campo en la tabla prestec. Si el valor del campo es uno la película es gratuita.
 
+
+ 
+alter table prestec add column Regalo boolean default 0//
+
 delimiter //
--- alter table prestec add column Regalo boolean default 0//
+
 drop trigger handling5//
 
 create trigger handling5 before insert on prestec
 for each row
 begin
 	declare var int;
-	set var = (select count(*) from prestec where DNI=NEW.DNI);
-	if (var%6=0)then
+	set var = (select count(*)+1 from prestec where DNI=NEW.DNI);
+	if (var%6=0) then
 		set NEW.Regalo=true;
 	end if;
 end//
 delimiter ;
--- Pendiente de pulir
+
 
 
 
