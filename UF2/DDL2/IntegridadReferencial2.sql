@@ -4,7 +4,7 @@ COUNTRY(__Code__, Name, Continent, Region, SurfaceArea,IndepYear, Population, Li
 COUNTRYLANGUAGE(__CountryCode__ ,__Language__, IsOfficial, Percentage)
 		DONDE {CountryCode} REFERENCIA A COUNTRY.
 CITY (__Id__, Name, CountryCode, District, Population)
-		DONDE {Id} REFERENCIA A COUNTRY
+		DONDE {CountryCode} REFERENCIA A COUNTRY
 
 PROBLEMA 3: CREACIÓN DE TABLAS
 		
